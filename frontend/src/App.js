@@ -24,7 +24,7 @@ class App extends React.Component {
       console.log(error)
     })
   }//////
-  render(){
+  render(){ // make a different comp the home comp and then make <Switch> in here. Not in index.js. Only the router goes in index.
     return (
       <div className="App">
         <button onClick={this.createRoom}>Create and navigate to room</button>

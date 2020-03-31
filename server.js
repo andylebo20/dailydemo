@@ -2,7 +2,10 @@ var express = require('express')
 var app = express()
 var request = require('request')
 var cors = require('cors')
+var path = require('path')
 app.use(cors())
+
+app.use(express.static(path.join(__dirname, 'frontend/build')))
 app.post('/createRoom', function(req, res){
     var options = {
         method: 'POST',
