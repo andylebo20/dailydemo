@@ -1,0 +1,19 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "backend package",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/evening-cove-56087.git"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "Andy",
+  "license": "ISC"
+}
