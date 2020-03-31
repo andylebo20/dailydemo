@@ -1,9 +1,9 @@
-import React from '../node_modules/@types/react';
-import ReactDOM from '../node_modules/@types/react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter as Router, Route} from '../node_modules/react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Room from './Room'
 
 ReactDOM.render(

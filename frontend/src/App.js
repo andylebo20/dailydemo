@@ -1,7 +1,7 @@
-import React from '../node_modules/@types/react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {withRouter, Link} from '../node_modules/react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 class App extends React.Component {
   constructor(props){
