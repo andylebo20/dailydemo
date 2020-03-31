@@ -1,26 +1,37 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {withRouter, Link} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      callLink: ""
+    }
+
+    this.createRoom = this.createRoom.bind(this)
+  }
+
+  createRoom(){
+    fetch("/createRoom", {method: "post"}).then(function(res){
+      return res.json()
+    }).then(function(data){
+      //   https://dailydemoapp.daily.co/InPSAzilx8qAslvN31SA
+      this.setState({callLink: "/Room/" + data.name})
+    }.bind(this)).catch(function(error){
+      console.log(error)
+    })
+  }//////
+  render(){
+    return (
+      <div className="App">
+        <button onClick={this.createRoom}>Create and navigate to room</button>
+        <Link to={this.state.callLink}>{this.state.callLink}</Link>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);

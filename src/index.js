@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import Room from './Room'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <Route exact path="/" component={App}/>
+    <Route path="/Room/:roomID" render={props => <Room {...props}/>}/>
+  </Router>,
   document.getElementById('root')
 );
 
