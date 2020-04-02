@@ -85,7 +85,7 @@ class Dashboard extends React.Component {
       <div className="App">
         <div className="createRoomHolder">
             <button className="createRoomBtn" onClick={this.createRoom}>Click here to create a room and generate a link</button>
-            <Link className="roomLink" to={this.state.callLink}>{this.state.callLink}</Link>
+            <a className="roomLink" to={this.state.callLink}>{this.state.callLink}</a>
         </div>
         <div className="metricsDisplay"> {/* Setting up graph display (if call was selected) */}
             {this.state.metricsForOneCall.length > 0 ?
