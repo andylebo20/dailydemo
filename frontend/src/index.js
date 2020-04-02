@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import './index.css';
-import App from './App';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-import Room from './Room'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 ReactDOM.render(
   <Router>
-    <Route exact path="/" component={App}/>
-    <Route path="/Room/:roomID" render={props => <Room {...props}/>}/>
+    <App/>
   </Router>,
   document.getElementById('root')
 );
