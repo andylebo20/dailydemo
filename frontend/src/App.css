@@ -32,9 +32,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
   height: 250px;
   background-color: #f7f7f7;
+  overflow: auto;
+  position: relative;
 }
 
 .createRoomHolder {
@@ -63,6 +66,7 @@
   cursor: pointer;
   outline: none;
   margin-top: 5px;
+  text-decoration: underline;
 }
 
 .roomsListHolder{
@@ -108,6 +112,10 @@
 .inGraphLbl{
   margin-left: 50px;
   margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .noVideoCallsLbl{
@@ -161,6 +169,10 @@
   font-weight: 500;
   margin-bottom: 20px;
   color: rgb(97, 97, 97);
+}
+
+.dashboard{
+  overflow: hidden;
 }
 
 @keyframes App-logo-spin {

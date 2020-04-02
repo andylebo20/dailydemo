@@ -15,7 +15,7 @@ class App extends React.Component {
           </Route>
           <Route path="/Login" component={Login}/>
           <Route exact path="/Dashboard/:emailID" component={Dashboard}/>
-          <Route path="/Room/:roomID" component={Room}/>
+          <Route path="/Room/:roomID/:emailID" component={Room}/>
       </div>
     );
   }

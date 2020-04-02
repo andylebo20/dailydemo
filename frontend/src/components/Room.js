@@ -34,19 +34,18 @@ class Room extends React.Component{
         })
     }
 
-    saveMetrics(){ // saves call metrics if the user logged in on this device
-        var emailID = localStorage.getItem("emailID") || ""
-        if (emailID === ""){
-            return
-        }
-        this.db.collection(emailID).doc(this.roomID).set({
+    saveMetrics(){ // saves personal call metrics to the host's room
+        var emailID = window.location.pathname.split("/")[3]
+        this.db.collection("users").doc(emailID).collection("rooms").doc(this.roomID).collection("participants").doc().set({
             videoRecvBitsPerSecondARR: this.metricsHistory.map(data => data.videoRecvBitsPerSecond),
             videoSendBitsPerSecondARR: this.metricsHistory.map(data => data.videoSendBitsPerSecond),
             videoRecvPacketLossARR: this.metricsHistory.map(data => data.videoRecvPacketLoss),
             videoSendPacketLossARR: this.metricsHistory.map(data => data.videoSendPacketLoss)
         }).then(function(){
-            console.log("saved metrics to database")
-            this.props.history.push("/Dashboard/" + emailID)
+            console.log("saved participant metrics to database")
+            if (localStorage.getItem("emailID") || "" !== ""){ // user previously logged in to dashboard (the room host)
+                this.props.history.push("/Dashboard/" + emailID)
+            }
         }.bind(this)).catch(function(error){
             console.log(error)
         })
@@ -70,11 +69,11 @@ class Room extends React.Component{
             }.bind(this)).catch(function(error){
                 console.log(error)
             })
-            this.callFrame.on('left-meeting', () => { // saves metrics when the user leaves the call room
+            this.callFrame.on('left-meeting', () => { // saves metrics when the user leaves the call room (must click "leave" to save)
                 this.callFrame.iframe().style.visibility = "hidden"
                 this.saveMetrics()
             })
-        }, 1000)
+        }, 2000)
     }
 
     render(){

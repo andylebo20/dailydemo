@@ -1,4 +1,5 @@
 import React from 'react'
+import firebase from '../firebase'
 import {withRouter} from 'react-router-dom'
 
 class Login extends React.Component{
@@ -17,9 +18,15 @@ class Login extends React.Component{
         this.setState({email: event.target.value})
     }
 
-    submitEmail(){ // email is used to identify the user in the database
+    submitEmail(){ // email is used to identify the host in the database and who the host is during calls
         localStorage.setItem("emailID", this.state.email)
-        this.props.history.push("/Dashboard/" + this.state.email)
+        firebase.firestore().collection("users").doc(this.state.email).set({
+            lastLoggedIn: new Date()
+        }).then(function(){
+            this.props.history.push("/Dashboard/" + this.state.email)
+        }.bind(this)).catch(function(error){
+            console.log(error)
+        })
     }
 
     render(){

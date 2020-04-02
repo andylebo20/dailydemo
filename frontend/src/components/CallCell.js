@@ -8,13 +8,8 @@ class CallCell extends React.Component{
         this.seeMetricsForCall = this.seeMetricsForCall.bind(this)
     }
 
-    seeMetricsForCall(){ // sends metrics from this video call to the dashboard for display
-        this.props.seeMetricsForCall({
-            videoRecvBitsPerSecondARR: this.props.callData["videoRecvBitsPerSecondARR"],
-            videoSendBitsPerSecondARR: this.props.callData["videoSendBitsPerSecondARR"],
-            videoRecvPacketLossARR: this.props.callData["videoRecvPacketLossARR"],
-            videoSendPacketLossARR: this.props.callData["videoSendPacketLossARR"]
-        })
+    seeMetricsForCall(){ // sends id for this call room up to Dashboard method for further querying and preparation of data
+        this.props.loadAllParticipantMetricsForRoom(this.props.id)
     }
 
     render(){
