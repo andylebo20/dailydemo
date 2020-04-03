@@ -1,6 +1,6 @@
 # dailydemo
 
-This is a web application that lets people create and share video calls, then view network metrics about these calls.
+This is a web application that lets people create and share video calls, then view network metrics about these calls.  
 Using this web application, a [daily.co](https://www.daily.co/) developer can debug performance issues to further improve call quality.
 
 ## Technology Used
