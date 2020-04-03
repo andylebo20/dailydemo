@@ -50,7 +50,8 @@ Your email is used as identification in the database and to remember who the hos
 ![Alt text](dailydemoScreenshots/screenshot1.png)
 
 To create a new call room, click the button at the top of the screen.  
-A link to a new call room will be generated, which you can click on to join the call, or send it to others so they can join.   The link contains the room name (9l9pKHRPQoUaH6B7xocz) and the host's email address (andylebo20@gmail.com).
+A link to a new call room will be generated, which you can click on to join the call, or send it to others so they can join.  
+The link contains the room name (9l9pKHRPQoUaH6B7xocz) and the host's email address (andylebo20@gmail.com).
 
 ![Alt text](dailydemoScreenshots/screenshot2.png)
 
