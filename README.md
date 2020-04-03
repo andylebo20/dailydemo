@@ -42,4 +42,19 @@ In **both** terminal windows, run the following command:
 
 ## How to use
 
+First, you will need to enter your email. 
+Your email is used to identify yourself in the database and remember who the host is during calls.
+
 ![Alt text](dailydemoScreenshots/screenshot1.png)
+
+To create a new call room, click the button at the top of the screen. A link to a new call room will be generated, which you can click on to join the call, or send it to others so they can join.
+
+![Alt text](dailydemoScreenshots/screenshot2.png)
+
+This is what a video call looks like. When you're done chatting, remember to click the **Leave** button in the bottom right. After doing so, your network metrics will be saved in the database.
+
+![Alt text](dailydemoScreenshots/screenshot3.png)
+
+To view each person's metrics from your call, click on the room name from the list of rooms. Then, graphs will display metrics from each participant in the call. You can scroll up/down to see other participants' metric graphs if there was more than one person in the call.
+
+![Alt text](dailydemoScreenshots/screenshot4.png)
