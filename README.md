@@ -1,6 +1,7 @@
 # dailydemo
 
 This is a web application that lets people create and share video calls, then view network metrics about these calls.
+Using this web application, a [daily.co](https://www.daily.co/) developer can debug performance issues to further improve call quality.
 
 ## Technology Used
 
@@ -42,19 +43,24 @@ In **both** terminal windows, run the following command:
 
 ## How to use
 
-First, you will need to enter your email. 
-Your email is used to identify yourself in the database and remember who the host is during calls.
+First, you will need to enter your email.  
+Your email is used as identification in the database and to remember who the host is during calls.
 
 ![Alt text](dailydemoScreenshots/screenshot1.png)
 
-To create a new call room, click the button at the top of the screen. A link to a new call room will be generated, which you can click on to join the call, or send it to others so they can join.
+To create a new call room, click the button at the top of the screen.  
+A link to a new call room will be generated, which you can click on to join the call, or send it to others so they can join.   The link contains the room name (9l9pKHRPQoUaH6B7xocz) and the host's email address (andylebo20@gmail.com).
 
 ![Alt text](dailydemoScreenshots/screenshot2.png)
 
-This is what a video call looks like. When you're done chatting, remember to click the **Leave** button in the bottom right. After doing so, your network metrics will be saved in the database.
+This is the video call room! When you're done chatting, remember to click the **Leave** button in the bottom right.   
+After doing so, your network metrics will be saved in the database.
 
 ![Alt text](dailydemoScreenshots/screenshot3.png)
 
-To view each person's metrics from your call, click on the room name from the list of rooms. Then, graphs will display metrics from each participant in the call. You can scroll up/down to see other participants' metric graphs if there was more than one person in the call.
+To view each person's metrics from your call, click on the room name from the list of rooms.   
+Then, graphs will display metrics from each participant in the call.  
+You can scroll up/down to see other participants' metric graphs if there was more than one person in the call.
 
 ![Alt text](dailydemoScreenshots/screenshot4.png)
+
