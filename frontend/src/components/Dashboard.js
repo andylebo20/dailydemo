@@ -18,6 +18,7 @@ class Dashboard extends React.Component {
     this.createRoom = this.createRoom.bind(this)
     this.seeMetricsForCall = this.seeMetricsForCall.bind(this)
     this.loadAllParticipantMetricsForRoom = this.loadAllParticipantMetricsForRoom.bind(this)
+    this.renderCharts = this.renderCharts.bind(this)
   }
 
   loadAllParticipantMetricsForRoom(roomID){ // load call data for each call participant; called from CallCell component
@@ -99,6 +100,34 @@ class Dashboard extends React.Component {
       })
   }
 
+  renderCharts(){ // shows two charts for each participant
+    return this.state.metricsForOneRoom.map((participantData, index) => 
+      <div>
+        <div className="chartsHolder">
+          <LineChart key={index} width={500} height={285} data={participantData}>
+            <CartesianGrid strokeDasharray="3 3"/>
+            <XAxis label={"Seconds since participant " + (index+1) + " joined call"} dataKey="timestamp" tick={{fontSize: "10px"}} height={60} />
+            <YAxis tick={{fontSize: "12px"}}/>
+            <Tooltip/>
+            <Legend wrapperStyle={{fontSize: "13px"}}/>
+            <Line type="monotone" dataKey="videoRecvBitsPerSecond" stroke="#152CFE" activeDot={{ r: 8 }}/>
+            <Line type="monotone" dataKey="videoSendBitsPerSecond" stroke="#00C613" activeDot={{ r: 8 }}/>
+          </LineChart>
+          <LineChart key={index} width={500} height={285} data={participantData}>
+            <CartesianGrid strokeDasharray="3 3"/>
+            <XAxis label={"Seconds since participant " + (index+1) + " joined call"} dataKey="timestamp" tick={{fontSize: "10px"}} height={60} />
+            <YAxis tick={{fontSize: "12px"}}/>
+            <Tooltip/>
+            <Legend wrapperStyle={{fontSize: "13px"}}/>
+            <Line type="monotone" dataKey="videoRecvPacketLoss" stroke="#B200FF" activeDot={{ r: 8 }}/>
+            <Line type="monotone" dataKey="videoSendPacketLoss" stroke="#00C6CD" activeDot={{ r: 8 }}/>
+          </LineChart>
+        </div>
+        <hr/>
+      </div>
+    )
+  }
+
   render(){
     return (
       <div className="dashboard">
@@ -108,22 +137,7 @@ class Dashboard extends React.Component {
         </div>
         <div className="metricsDisplay"> {/* Setting up graph displays (if call was selected from list) */}
             {this.state.metricsForOneRoom.length > 0 ?
-                this.state.metricsForOneRoom.map((participantData, index) => 
-                    <div>
-                      <LineChart key={index} width={780} height={200} data={participantData}>
-                        <CartesianGrid strokeDasharray="3 3"/>
-                        <XAxis label={"Seconds since participant " + (index+1) + " joined call"} dataKey="timestamp" tick={false} height={30} />
-                        <YAxis tick={{fontSize: "12px"}}/>
-                        <Tooltip/>
-                        <Legend wrapperStyle={{fontSize: "13px"}}/>
-                        <Line type="monotone" dataKey="videoRecvBitsPerSecond" stroke="#152CFE" activeDot={{ r: 8 }}/>
-                        <Line type="monotone" dataKey="videoSendBitsPerSecond" stroke="#00C613" activeDot={{ r: 8 }}/>
-                        <Line type="monotone" dataKey="videoRecvPacketLoss" stroke="#B200FF" activeDot={{ r: 8 }}/>
-                        <Line type="monotone" dataKey="videoSendPacketLoss" stroke="#00C6CD" activeDot={{ r: 8 }}/>
-                      </LineChart>
-                      <hr/>
-                    </div>
-                ) :
+                this.renderCharts() :
                 <label className="inGraphLbl">Please select a room ID from the list below to see that call's metrics.{<br/>}If the selected call lasted for less than 15 seconds, data will not appear.</label>
             }
         </div>
