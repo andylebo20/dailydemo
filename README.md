@@ -5,7 +5,7 @@ Using this web application, a [daily.co](https://www.daily.co/) developer can de
 
 ## Technology used
 
-This project has a React frontend with a Node.JS & Express backend. The [daily.co API](https://docs.daily.co/docs) was used to easily create and embed video calls, as well as obtain metrics about these video calls. Firebase Firestore was used to store the metrics from each call. The [recharts library](http://recharts.org/en-US/) was used to graph the metrics of these video calls. Much of the frontend code can be found in `frontend/src/components`. The backend code is primarily in the `server.js` file.
+This project has a React frontend with a Node.JS & Express backend. The [daily.co API](https://docs.daily.co/docs) was used to easily create and embed video calls, as well as obtain metrics about these video calls. Firebase Firestore was used to store the metrics from each video call. The [recharts library](http://recharts.org/en-US/) was used to graph the metrics of these video calls. Much of the frontend code can be found in `frontend/src/components`. The backend code is primarily in the `server.js` file.
 
 ## How to setup in your local development environment
 
