@@ -42,4 +42,4 @@ In **both** terminal windows, run the following command:
 
 ## How to use
 
-![test](dailydemoScreenshots/Screen Shot 2020-04-03 at 12.57.44 PM)
+![Alt text](dailydemoScreenshots/screenshot1.png)
